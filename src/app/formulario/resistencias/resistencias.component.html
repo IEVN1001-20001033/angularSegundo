@@ -1,0 +1,148 @@
+<div class="container mx-auto px-4 border-solid border-2 rounded-md border-pink-600">
+  <form [formGroup]="formGroup" (ngSubmit)="Registrar()" class="mx-auto">
+    <div class="grid grid-cols-3 grid-rows-1 gap-4 p-10">
+      <div>
+        <h2 class="text-center p-2 font-medium text-gray-900 dark:text-white">Primera Banda</h2>
+        <div class="flex items-center space-x-2">
+          <label for="color1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Color1:</label>
+          <select id="color1" formControlName="color1"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option value="Negro">Negro</option>
+            <option value="Café">Café</option>
+            <option value="Rojo">Rojo</option>
+            <option value="Naranja">Naranja</option>
+            <option value="Amarillo">Amarillo</option>
+            <option value="Verde">Verde</option>
+            <option value="Azul">Azul</option>
+            <option value="Violeta">Violeta</option>
+            <option value="Gris">Gris</option>
+            <option value="Blanco">Blanco</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <h2 class="text-center p-2 font-medium text-gray-900 dark:text-white">Segunda Banda</h2>
+        <div class="flex items-center space-x-2">
+          <label for="color2" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Color2:</label>
+          <select id="color2" formControlName="color2"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option value="Negro" selected>Negro</option>
+            <option value="Café">Café</option>
+            <option value="Rojo">Rojo</option>
+            <option value="Naranja">Naranja</option>
+            <option value="Amarillo">Amarillo</option>
+            <option value="Verde">Verde</option>
+            <option value="Azul">Azul</option>
+            <option value="Violeta">Violeta</option>
+            <option value="Gris">Gris</option>
+            <option value="Blanco">Blanco</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <h2 class="text-center p-2 font-medium text-gray-900 dark:text-white">Tercera Banda</h2>
+        <div class="flex items-center space-x-2">
+          <label for="color3" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Color3:</label>
+          <select id="color3" formControlName="color3"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option value="Negro" selected>Negro</option>
+            <option value="Café">Café</option>
+            <option value="Rojo">Rojo</option>
+            <option value="Naranja">Naranja</option>
+            <option value="Amarillo">Amarillo</option>
+            <option value="Verde">Verde</option>
+            <option value="Azul">Azul</option>
+            <option value="Violeta">Violeta</option>
+            <option value="Gris">Gris</option>
+            <option value="Blanco">Blanco</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-10">
+      <h2 class="p-2 font-medium text-gray-900 dark:text-white">Tolerancia</h2>
+      <div class="flex items-center mb-4 space-x-2">
+        <input id="oro" type="radio" value="Oro" formControlName="tolerancia"
+          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+        <label for="oro" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Oro</label>
+      </div>
+      <div class="flex items-center space-x-2">
+        <input id="plata" type="radio" value="Plata" formControlName="tolerancia"
+          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+        <label for="plata" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Plata</label>
+      </div>
+    </div>
+    <div class="p-10">
+      <div class="flex items-center mb-4 space-x-2">
+        <button type="submit"
+          class="text-white bg-pink-700 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800">Registrar</button>
+
+
+        <button type="button" (click)="Imprimir()"
+          class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
+          Imprimir</button>
+      </div>
+    </div>
+  </form>
+  
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table *ngIf="verResistencia"
+      class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-blue-400 border-collapse">
+      <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
+        <tr>
+          <th class="px-4 py-2 bg-gray-50 dark:bg-gray-800 text-center p-2 border">
+            Color 1
+          </th>
+          <th class="px-4 py-2 bg-gray-50 dark:bg-gray-800 text-center p-2 border">
+            Color 2
+          </th>
+          <th class="px-4 py-2 bg-gray-50 dark:bg-gray-800 text-center p-2 border">
+            Color 3
+          </th>
+          <th class="px-4 py-2 bg-gray-50 dark:bg-gray-800 text-center p-2 border">
+            Tolerancia
+          </th>
+          <th class="px-4 py-2 bg-gray-50 dark:bg-gray-800 text-center p-2 border">
+            Valor
+          </th>
+          <th class="px-4 py-2 bg-gray-50 dark:bg-gray-800 text-center p-2 border">
+            Valor Máximo
+          </th>
+          <th class="px-4 py-2 bg-gray-50 dark:bg-gray-800 text-center p-2 border">
+            Valor Mínimo
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let resistencia of resistencias" class="border-b border-gray-200 dark:border-gray-700 ">
+          <th class="px-4 py-2  bg-gray-50 dark:bg-gray-800 border"
+            [ngStyle]="{'background-color':this.colorFondo(resistencia.color1)}">
+            {{resistencia.color1}}
+          </th>
+          <td class="px-4 py-2 bg-gray-50 dark:bg-gray-800 border"
+            [ngStyle]="{'background-color':this.colorFondo(resistencia.color2)}">
+            {{resistencia.color2}}
+          </td>
+          <td class="px-4 py-2 bg-gray-50 dark:bg-gray-800 border"
+            [ngStyle]="{'background-color':this.colorFondo(resistencia.color3)}">
+            {{resistencia.color3}}
+          </td>
+          <td class="px-4 py-2 bg-gray-50 dark:bg-gray-800 border"
+            [ngStyle]="{'background-color':this.colorFondo(resistencia.tolerancia)}">
+            {{resistencia.tolerancia}}
+          </td>
+          <td class="px-4 py-2 bg-gray-50 dark:bg-gray-800 border">
+            {{resistencia.valor}}
+          </td>
+          <td class="px-4 py-2 bg-gray-50 dark:bg-gray-800 border">
+            {{resistencia.valorMax}}
+          </td>
+          <td class="px-4 py-2 bg-gray-50 dark:bg-gray-800 border">
+            {{resistencia.valorMin}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
