@@ -54,15 +54,25 @@ export default class EmpleadosComponent implements OnInit {
 
   onRegistrar():void{
     const {matricula, nombre, email, edad, horas} = this.formGroup.value;//Desestructuración de arreglos
-    
-    const nuevoEmpleado: Empleado = {matricula, nombre, email, edad, horas};
     let empGuardado: Empleado[] = JSON.parse(localStorage.getItem("empleados") || '[]');
 
-    empGuardado.push(nuevoEmpleado);
+    const indice = empGuardado.findIndex((empleado) => empleado.matricula === this.matriculaModificar);
+
+      if(indice !== -1){
+        empGuardado[indice] = { matricula, nombre, email, edad, horas };
+       
+      }else{
+        const nuevoEmpleado: Empleado = {matricula, nombre, email, edad, horas};
+    
+        empGuardado.push(nuevoEmpleado);
+      }
+
+   
     localStorage.setItem("empleados",JSON.stringify(empGuardado));
 
     this.empleados = empGuardado;
     this.verTabla = false;
+    this.formGroup.reset();
   }
 
   Imprimir():void{
@@ -97,7 +107,7 @@ export default class EmpleadosComponent implements OnInit {
     
     }
 
-    buscarEmp(matricula: string): void{
+    Modificar(matricula: string): void{
       let empGuardado: Empleado[] = JSON.parse(localStorage.getItem('empleados') || '[]');
       const empEncontrado = empGuardado.find((empleado) => empleado.matricula === matricula);
 
@@ -112,41 +122,23 @@ export default class EmpleadosComponent implements OnInit {
 
         this.matriculaModificar = matricula;
       }
-
-      //this.modificar = false;
-    }
-
-    Modificar(): void{
-      const { matricula, nombre, email, edad, horas } = this.formGroup.value;
-      let empGuardado: Empleado[] = JSON.parse(localStorage.getItem('empleados') || '[]');
-
-      const indice = empGuardado.findIndex((empleado) => empleado.matricula === this.matriculaModificar);
-
-      if(indice !== -1){
-        empGuardado[indice] = { matricula, nombre, email, edad, horas };
-        localStorage.setItem('empleados', JSON.stringify(empGuardado));
-        this.empleados = empGuardado;
-        this.verTabla = false;
-
-        this.formGroup.reset();
-        
-        this.buscarMatricula= '';
-      }
-    
     }
 
     Eliminar(): void {
-      let empGuardado: Empleado[] = JSON.parse(localStorage.getItem('empleados') || '[]');
+     /* let empGuardado: Empleado[] = JSON.parse(localStorage.getItem('empleados') || '[]');
       empGuardado = empGuardado.filter((empleado) => empleado.matricula !== this.buscarMatricula);
 
-      
-      localStorage.setItem('empleado', JSON.stringify(empGuardado));
+      const  empActualizados = empGuardado.filter(empleado => empleado.matricula !== this.buscarMatricula);
+
+      localStorage.setItem('empleados', JSON.stringify(empActualizados));
         
-      this.empleados = empGuardado;
+      this.empleados = empActualizados;
+
       this.verTabla = false;
       
       this.formGroup.reset();
-      this.buscarMatricula= '';
+      this.buscarMatricula= '';*/
+      localStorage.removeItem('empleados');
     }
 
 }
