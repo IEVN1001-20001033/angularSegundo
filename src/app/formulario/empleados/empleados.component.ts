@@ -57,7 +57,7 @@ export default class EmpleadosComponent implements OnInit {
 
     const indice = empGuardado.findIndex((empleado) => empleado.matricula === this.matriculaModificar);
 
-      if(indice !== -1){
+      if(indice >= 0){
         empGuardado[indice] = { matricula, nombre, email, edad, horas };
        
       }else{
