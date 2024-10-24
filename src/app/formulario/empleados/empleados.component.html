@@ -7,7 +7,7 @@
                 <div class="mb-5 flex items-center ">
                     <label for="matricula"
                         class="block w-60 mb-0 text-sm font-medium text-gray-900 dark:text-white">Matricula</label>
-                    <input [(ngModel)]="buscarMatricula" type="text" id="matricula"
+                    <input type="text" id="matricula"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Matricula" formControlName="matricula" />
                 </div>
@@ -126,7 +126,7 @@
                     </table>
                 </div>
                 <div>
-                   <button type="button" (click)="Modificar(buscarMatricula)"
+                   <button type="button" (click)="Modificar()"
                         class="m-2 text-white bg-pink-700 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800">Modificar</button>
                     <button type="button" (click)="Eliminar()"
                         class="m-2 text-white bg-pink-700 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800">Eliminar</button>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import{FormBuilder, FormGroup, ReactiveFormsModule, FormsModule} from '@angular/forms';
+import{FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 interface Empleado{
@@ -16,7 +16,7 @@ interface Empleado{
 @Component({
   selector: 'app-empleados',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, FormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './empleados.component.html',
 })
 export default class EmpleadosComponent implements OnInit {
@@ -25,16 +25,15 @@ export default class EmpleadosComponent implements OnInit {
   modificar: boolean = true; 
   empleados: Empleado[] = [];  
   totalPagar:number = 0;
-  buscarMatricula: string = '';
   matriculaModificar: string = '';
 
-  empleado:Empleado={
+  /*empleado:Empleado={
     matricula:'',
     nombre:'',
     email:'',
     edad: 0,
-    horas: 0
-  };
+    horas: 0, 
+  };*/
 
   constructor(private readonly fb: FormBuilder){}
 
@@ -107,7 +106,9 @@ export default class EmpleadosComponent implements OnInit {
     
     }
 
-    Modificar(matricula: string): void{
+    Modificar(): void{
+      const matricula = this.formGroup.get('matricula')?.value;
+
       let empGuardado: Empleado[] = JSON.parse(localStorage.getItem('empleados') || '[]');
       const empEncontrado = empGuardado.find((empleado) => empleado.matricula === matricula);
 
@@ -122,23 +123,26 @@ export default class EmpleadosComponent implements OnInit {
 
         this.matriculaModificar = matricula;
       }
+      
+
     }
 
     Eliminar(): void {
-     /* let empGuardado: Empleado[] = JSON.parse(localStorage.getItem('empleados') || '[]');
-      empGuardado = empGuardado.filter((empleado) => empleado.matricula !== this.buscarMatricula);
+      const matricula = this.formGroup.get('matricula')?.value;
+      let empGuardado: Empleado[] = JSON.parse(localStorage.getItem('empleados') || '[]');
+      const empleadoRecuperado = empGuardado.filter((empleado) => empleado.matricula !== matricula);
 
-      const  empActualizados = empGuardado.filter(empleado => empleado.matricula !== this.buscarMatricula);
+      //const  empActualizados = empleadoRecuperado.filter(empleado => empleado.matricula !== this.matriculaModificar);
 
-      localStorage.setItem('empleados', JSON.stringify(empActualizados));
+      localStorage.setItem('empleados', JSON.stringify(empleadoRecuperado));
         
-      this.empleados = empActualizados;
+      this.empleados = empleadoRecuperado;
 
       this.verTabla = false;
       
       this.formGroup.reset();
-      this.buscarMatricula= '';*/
-      localStorage.removeItem('empleados');
+
+
     }
 
 }

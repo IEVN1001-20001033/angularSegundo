@@ -73,16 +73,9 @@ export default class ResistenciasComponent implements OnInit {
 
   Registrar():void{
     const{ color1, color2, color3, tolerancia} = this.formGroup.value;
-    /*this.resistencia.color1=color1;
-    this.resistencia.color2=color2;
-    this.resistencia.color3=color3;
-    this.resistencia.tolerancia=tolerancia;*/
 
     
     const nRes: Resistencia = { color1, color2, color3, tolerancia };
-
-    //et resistenciaJSON = JSON.stringify(this.resistencia);    
-    //localStorage.setItem("resistencia", resistenciaJSON);
     let resGuardadas: Resistencia[] = JSON.parse(localStorage.getItem("resistencias") || '[]');
 
     resGuardadas.push(nRes);
@@ -94,14 +87,7 @@ export default class ResistenciasComponent implements OnInit {
   }
 
   Imprimir():void{
-   /* const resistenciaGuardada = localStorage.getItem('resistencia');
-    if(resistenciaGuardada){
-      const resistenciaRecuperada: Resistencia = JSON.parse(resistenciaGuardada);
-
-      this.resistencia=resistenciaRecuperada;
-      this.verResistencia = true;
-    }*/
-    
+       
       const resistenciaRecuperada = JSON.parse(localStorage.getItem("resistencias") || '[]');
       
       this.resistencias=resistenciaRecuperada;
