@@ -7,8 +7,15 @@ export default[
     },
     {
         path: 'agregar',
-        //localComponent:()=>import('./sign-in/sign-in.component.ts'),
         loadComponent:()=>import('./agregar/agregar.component'),
+    },
+    {
+        path: 'eliminar/:matricula',
+        loadComponent:()=>import('./eliminar/eliminar.component'),
+    },
+    {
+        path: 'editar/:matricula',
+        loadComponent:()=>import('./editar/editar.component'),
     },
     
     
